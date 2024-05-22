@@ -1,0 +1,7 @@
+<!-- gradient_pink.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="#FFB6C1"
+    android:endColor="#FF69B4"
+    android:angle="90"/>
+</shape>
