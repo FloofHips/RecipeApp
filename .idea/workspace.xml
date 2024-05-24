@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_add_recipe.xml">
+        <config>
+          <theme>@style/Theme.AppR</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_dashboard.xml">
+        <config>
+          <theme>@style/Theme.AppR</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_edit_recipe.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_item.xml">
+        <config>
+          <theme>@style/Base.Theme.AppR</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_login.xml">
+        <config>
+          <theme>@style/Theme.AppR</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.AppR</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_profil.xml">
+        <config>
+          <theme>@style/Base.Theme.AppR</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_recipe_details.xml">
+        <config>
+          <theme>@style/Theme.AppR</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_register.xml">
+        <config>
+          <theme>@style/Theme.AppR</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/activity_user_guest.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/appR/app/src/main/res/layout/list_item_recipe.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5a9db4c9-5f33-403c-8095-904a0e56414e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/AddRecipeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/AddRecipeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/DBConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/RegisterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/profilActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/profilActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/recipeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/java/com/example/appr/recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_add_recipe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_add_recipe.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_dashboard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_edit_recipe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_edit_recipe.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_profil.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_profil.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_user_guest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/appR/app/src/main/res/layout/activity_user_guest.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Reda\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/appR">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/appR/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2gpvlRFHcnEEUy91AmMjI0RPze0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Reda/Documents/Y4/S2",
+    "settings.editor.selected.configurable": "Errors"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.appr" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="appR.app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="appR.app.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a9db4c9-5f33-403c-8095-904a0e56414e" name="Changes" comment="" />
+      <created>1716407483345</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716407483345</updated>
+    </task>
+    <servers />
+  </component>
+</project>

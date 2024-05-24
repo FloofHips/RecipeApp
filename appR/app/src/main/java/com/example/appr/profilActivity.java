@@ -28,13 +28,13 @@ public class profilActivity extends AppCompatActivity {
         ArrayList<Integer> recipeIds = new ArrayList<>();
 
 // Retrieve all recipes from the database
-        List<recipeActivity> allRecipes = db.getAllRec();
+        List<recipe> allRecipes = db.getAllRec();
 
 // Initialize the next recipe ID
         int nextRecipeId = -1;
 
 // Iterate over the list of recipes
-        for (recipeActivity rec : allRecipes) {
+        for (recipe rec : allRecipes) {
             // Check if the recipe belongs to the specified user
             if (rec.getidUser() == userId) {
                 // Add recipe details to the ArrayLists

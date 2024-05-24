@@ -3,6 +3,7 @@ package com.example.appr;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,15 +20,15 @@ public class RegisterActivity extends AppCompatActivity {
         DBConnect db = new DBConnect(this);
 
         // Find the CardView
-        CardView loginCardView = findViewById(R.id.loginCardView);
+        Button loginCardView = findViewById(R.id.alrAccount);
 
         TextView b1;
         EditText d1, d2, d3;
 
-        b1 = findViewById(R.id.bRegister);
-        d1 = findViewById(R.id.getNomR);
-        d2 = findViewById(R.id.getMotDePasseR);
-        d3 = findViewById(R.id.getMotDePasseconfirmR);
+        b1 = findViewById(R.id.register);
+        d1 = findViewById(R.id.username);
+        d2 = findViewById(R.id.password);
+        d3 = findViewById(R.id.passwordConf);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,11 +42,15 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (!password.equals(confirmPassword)) {
                     Toast.makeText(RegisterActivity.this, "Les mots de passe ne sont pas identiques", Toast.LENGTH_SHORT).show();
                 } else {
-                    db.addContact(new UserActivity(name, password));
+                    int userId = db.addContact(new UserActivity(name, password));
                     d1.setText(null);
                     d2.setText(null);
                     d3.setText(null);
-                    Toast.makeText(RegisterActivity.this, "Compte crée avec succès, veuillez se connecter", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Compte crée avec succès", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RegisterActivity.this, Dashboard.class);
+
+                    intent.putExtra("userId", userId);
+                    startActivity(intent);
                 }
             }
         });

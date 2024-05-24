@@ -14,21 +14,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        // Find the CardView
-        CardView loginCardView = findViewById(R.id.loginCardView);
-        // Set OnClickListener to the CardView
+    public void onLoginClicked(View view) {
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
 
+    public void onRegisterClicked(View view) {
+        Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
 
-        loginCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start LoginActivity
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
+    public void onGuestAccessClicked(View view) {
+        Intent intent = new Intent(MainActivity.this, Dashboard.class);
+        intent.putExtra("userId", -1);
+        startActivity(intent);
     }
 }

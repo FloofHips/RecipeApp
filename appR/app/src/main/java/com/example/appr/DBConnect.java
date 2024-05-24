@@ -13,11 +13,12 @@ import java.util.List;
 
 
 public class DBConnect extends SQLiteOpenHelper {
-        private static final int DATABASE_VERSION = 2;
+        private static final int DATABASE_VERSION = 3;
         private static final String DATABASE_NAME = "RecipesApp";
         private static final String TABLE_USER = "user";
         private static final String TABLE_RECIPE = "recipe";
 
+        private static final String TABLE_FAVORITES = "favorites";
         public DBConnect(Context context) {
                 super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
@@ -41,6 +42,14 @@ public class DBConnect extends SQLiteOpenHelper {
                         "instrRec VARCHAR(255), " +
                         "FOREIGN KEY (idUserRec) REFERENCES user(idUser) ON DELETE CASCADE);"; // Foreign key constraint
                 db.execSQL(CREATE_RECIPE_TABLE);
+
+                String CREATE_FAVORITES_TABLE = "CREATE TABLE favorites (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "userid INTEGER, " +
+                        "recipeid INTEGER, " +
+                        "FOREIGN KEY (userid) REFERENCES user(idUser) ON DELETE CASCADE, " +
+                        "FOREIGN KEY (recipeid) REFERENCES recipe(idRec) ON DELETE CASCADE);"; // Foreign key constraints
+                db.execSQL(CREATE_FAVORITES_TABLE);
         }
 
         // Upgrading database
@@ -49,22 +58,22 @@ public class DBConnect extends SQLiteOpenHelper {
                 // Drop older table if existed
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_RECIPE);
+                db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITES);
 
                 // Create tables again
                 onCreate(db);
         }
 
         // code to add the new contact
-        void addContact(UserActivity user1) {
+        public int addContact(UserActivity user1) {
                 SQLiteDatabase db = this.getWritableDatabase();
 
                 ContentValues values = new ContentValues();
                 values.put("nameUser", user1.getName());
                 values.put("pwUser", user1.getPw());
-
-                // Inserting Row
-                db.insert(TABLE_USER, null, values);
-                db.close(); // Closing database connection
+                long newRowId = db.insert(TABLE_USER, null, values);
+                db.close();
+                return (int) newRowId;
         }
 
         // code to get the single contact
@@ -154,7 +163,7 @@ public class DBConnect extends SQLiteOpenHelper {
 /******************************************************************************************/
 
         // code to add  new recipe
-        public int addRecipe(recipeActivity rec1) {
+        public int addRecipe(recipe rec1) {
                 SQLiteDatabase db = this.getWritableDatabase();
 
                 ContentValues values = new ContentValues();
@@ -172,7 +181,7 @@ public class DBConnect extends SQLiteOpenHelper {
         }
 
         // // modifier recette
-        public int updateRecipe(recipeActivity rec) {
+        public int updateRecipe(recipe rec) {
                 SQLiteDatabase db = this.getWritableDatabase();
 
                 ContentValues values = new ContentValues();
@@ -182,24 +191,17 @@ public class DBConnect extends SQLiteOpenHelper {
                 values.put("catRec", rec.getCategories());
                 values.put("ingRec", rec.getIngredients());
                 values.put("instrRec", rec.getInstru());
-
-                // Log the values before updating
-                Log.d("Recipe Update", "Name: " + rec.getName()); // Check if this prints the updated value
-                Log.d("Recipe Update", "Query: " + db.compileStatement("UPDATE " + TABLE_RECIPE +
-                        " SET idUserRec = ?, nameRec = ?, timeRec = ?, catRec = ?, ingRec = ?, instrRec = ?" +
-                        " WHERE idRec = ?").toString());
-
                 // updating row
-                return db.update(TABLE_RECIPE, values, "idRec" + " = ?",
-                        new String[] { String.valueOf(rec.getid()) });
+                int result = db.update(TABLE_RECIPE, values, "idRec = ?", new String[]{String.valueOf(rec.getid())});
+                System.out.println(result);
+                db.close(); // Closing database connection
+                return result;
         }
 
-
-
         // Deleting single recipe , supprimer single recette
-        public void deleteRecipe(recipeActivity rec1) {
+        public void deleteRecipe(recipe rec1) {
                 SQLiteDatabase db = this.getWritableDatabase();
-                db.delete(TABLE_USER, "idRec" + " = ?",
+                db.delete(TABLE_RECIPE, "idRec" + " = ?",
                         new String[] { String.valueOf(rec1.getid()) });
                 db.close();
         }
@@ -217,9 +219,9 @@ public class DBConnect extends SQLiteOpenHelper {
 
         // code to get the single recette
         // code to get the single recette
-        public recipeActivity getRecipe(int id) {
+        public recipe getRecipe(int id) {
                 SQLiteDatabase db = this.getReadableDatabase();
-                recipeActivity rec = null;
+                recipe rec = null;
                 Cursor cursor = null;
 
                 try {
@@ -239,7 +241,7 @@ public class DBConnect extends SQLiteOpenHelper {
                                 @SuppressLint("Range") String instrRec = cursor.getString(cursor.getColumnIndex("instrRec"));
 
                                 // Create a new recipe object with the retrieved values
-                                rec = new recipeActivity(idRec, Integer.parseInt(String.valueOf(idUserRec)), nameRec, timeRec, catRec, ingRec, instrRec);
+                                rec = new recipe(idRec, Integer.parseInt(String.valueOf(idUserRec)), nameRec, timeRec, catRec, ingRec, instrRec);
                         }
                 } finally {
                         // Close the cursor to release resources
@@ -254,8 +256,8 @@ public class DBConnect extends SQLiteOpenHelper {
 
 
         // code to get all recipes in a list view
-        public List<recipeActivity> getAllRec() {
-                List<recipeActivity> recipeList = new ArrayList<>();
+        public ArrayList<recipe> getAllRec() {
+                ArrayList<recipe> recipeList = new ArrayList<>();
                 SQLiteDatabase db = this.getReadableDatabase();
                 Cursor cursor = null;
 
@@ -276,7 +278,7 @@ public class DBConnect extends SQLiteOpenHelper {
                                         @SuppressLint("Range") String instrRec = cursor.getString(cursor.getColumnIndex("instrRec"));
 
                                         // Create a new recipe object with the retrieved values
-                                        recipeActivity rec = new recipeActivity(idRec, Integer.parseInt(String.valueOf(idUserRec)), nameRec, timeRec, catRec, ingRec, instrRec);
+                                        recipe rec = new recipe(idRec, Integer.parseInt(String.valueOf(idUserRec)), nameRec, timeRec, catRec, ingRec, instrRec);
 
                                         // Add the recipe object to the list
                                         recipeList.add(rec);
@@ -292,5 +294,30 @@ public class DBConnect extends SQLiteOpenHelper {
                 // Return the list of recipes
                 return recipeList;
         }
+        public void addFavorite(int userID, recipe recipe) {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put("userid", userID);
+                values.put("recipeid", recipe.getid());
+                db.insert("favorites", null, values);
+                db.close();
+        }
 
+        public void deleteFavorite(int userID, recipe recipe) {
+                SQLiteDatabase db = this.getWritableDatabase();
+                db.delete("favorites", "userid = ? AND recipeid = ?", new String[]{String.valueOf(userID), String.valueOf(recipe.getid())});
+                db.close();
+        }
+
+        public boolean isFavorite(int userID, recipe recipe) {
+                SQLiteDatabase db = this.getReadableDatabase();
+                String query = "SELECT * FROM favorites WHERE userid = ? AND recipeid = ?";
+                Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userID), String.valueOf(recipe.getid())});
+
+                boolean isFavorite = cursor.getCount() > 0;
+                cursor.close();
+                db.close();
+
+                return isFavorite;
+        }
 }

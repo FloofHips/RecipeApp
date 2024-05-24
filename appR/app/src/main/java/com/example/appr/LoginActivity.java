@@ -1,14 +1,13 @@
 package com.example.appr;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -19,21 +18,20 @@ public class LoginActivity extends AppCompatActivity {
         DBConnect db = new DBConnect(this);
 
         // Find the CardViews
-        CardView loginCardView = findViewById(R.id.loginCardView);
-        CardView registerCardView = findViewById(R.id.registerCardView);
-        CardView questCardView = findViewById(R.id.guestCardView);
+        Button loginButton = findViewById(R.id.register);
+        Button registerButton = findViewById(R.id.alrAccount);
 
 
         // Find the guest access TextView
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView guestAccessTextView = findViewById(R.id.guestAccess);
+        //@SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView guestAccessTextView = findViewById(R.id.guestAccess);
 
         // Set OnClickListener to the Login CardView
-        loginCardView.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Retrieve username and password from TextViews
-                TextView usernameTextView = findViewById(R.id.getNomL);
-                TextView passwordTextView = findViewById(R.id.getmotdepasseL);
+                TextView usernameTextView = findViewById(R.id.username);
+                TextView passwordTextView = findViewById(R.id.password);
 
                 String username = usernameTextView.getText().toString();
                 String password = passwordTextView.getText().toString();
@@ -58,14 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-        // partie de redirection vers register dans login si n'a pas de compte
-
-        registerCardView.setOnClickListener(new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Start RegisterActivity
@@ -73,24 +64,5 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-        // Set OnClickListener to the guest access TextView
-        //partie de redirection vers UserGuestActivity une fois le boutton invité est cliqué
-
-        questCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Redirect to UserGuestActivity without userId
-                Intent intent = new Intent(LoginActivity.this, UserGuestActivity.class);
-                intent.putExtra("userId", -1); // Pass -1 or any value that indicates guest access
-                startActivity(intent);
-            }
-        });
-
-
-
-
     }
 }

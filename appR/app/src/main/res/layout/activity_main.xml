@@ -1,138 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dashb"
-    android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingTop="90dp"
-    android:paddingRight="10dp"
-
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:layout_width="364dp"
-        android:layout_height="370dp"
-        android:layout_gravity="center"
-        android:clipToPadding="false"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:padding="17dp"
-        android:visibility="visible"
-        tools:visibility="visible">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="270dp"
+        android:layout_height="256dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="340dp"
-            android:layout_height="353dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="13dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginRight="17dp"
-            android:layout_marginBottom="17dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardBackgroundColor="#F3DEBA"
-            app:cardCornerRadius="25dp"
-            app:cardElevation="24dp">
+    <Button
+        android:id="@+id/loginbutton"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#423A32"
+        android:onClick="onLoginClicked"
+        android:text="Log in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="357dp"
-                android:orientation="vertical"
+    <Button
+        android:id="@+id/registerbutton"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#423A32"
+        android:onClick="onRegisterClicked"
+        android:text="Register"
+        app:layout_constraintTop_toBottomOf="@+id/loginbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-                android:background="@drawable/gradient_background">
+    <Button
+        android:id="@+id/guestbutton"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#423A32"
+        android:onClick="onGuestAccessClicked"
+        android:text="Guest"
+        app:layout_constraintTop_toBottomOf="@+id/registerbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="111dp"
-                    android:layout_height="76dp"
-                    android:layout_gravity="right"/>
-
-                <TextView
-                    android:id="@+id/Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="192dp"
-                    android:layout_gravity="center"
-                    android:background="#FEE3B4"
-                    android:fontFamily="@font/playfair"
-                    android:gravity="center|center_horizontal|center_vertical"
-                    android:shadowColor="#F44336"
-                    android:text="Recetta"
-                    android:textColor="#d44038"
-                    android:textSize="70sp" />
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="87dp"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:layout_width="359dp"
-        android:layout_height="175dp"
-        android:orientation="horizontal"
-        android:paddingTop="13dp">
-
-        <LinearLayout
-            android:layout_width="369dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:clipToPadding="false"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:padding="1dp"
-                android:visibility="visible"
-                tools:visibility="visible">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/loginCardView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="65dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardBackgroundColor="#F3DEBA"
-                    app:cardCornerRadius="25dp"
-                    app:cardElevation="24dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="178dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:background="@drawable/gradient_background"
-                            android:fontFamily="@font/playfair"
-                            android:gravity="center"
-                            android:text="Continuer"
-                            android:textColor="#42459E"
-                            android:textSize="25sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </FrameLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

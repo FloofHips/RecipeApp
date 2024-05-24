@@ -1,87 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@drawable/gradient_pink">
+    android:background="@drawable/background_dark">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:translationY="0px"
+            app:layout_constraintBottom_toTopOf="@+id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/header" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Ajouter Recette"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="sans-serif-black"
+            android:text="New Recipe"
+            android:textColor="#758741"
             android:textSize="38sp"
             android:textStyle="bold"
-            android:textColor="#3F4296"
-            android:fontFamily="@font/playfairitalic"
-            android:layout_marginBottom="20dp"/>
-
-        <EditText
-            android:id="@+id/nameRec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nom de la recette"
-            android:inputType="text"
-            android:padding="10dp"
-            android:background="@drawable/edit_text_background"
-            android:layout_marginBottom="10dp"/>
+            app:layout_constraintBottom_toTopOf="@+id/nameRec"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/timeRec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
             android:hint="Temps de préparation (minutes)"
             android:inputType="number"
             android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameRec" />
+
+        <EditText
+            android:id="@+id/nameRec"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="204dp"
             android:background="@drawable/edit_text_background"
-            android:layout_marginBottom="10dp"/>
+            android:hint="Nom de la recette"
+            android:inputType="text"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/catRec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
             android:hint="Catégorie de la recette"
             android:inputType="text"
             android:padding="10dp"
-            android:background="@drawable/edit_text_background"
-            android:layout_marginBottom="10dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timeRec" />
 
         <EditText
             android:id="@+id/ingRec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
             android:hint="Ingrédients"
             android:inputType="text"
             android:padding="10dp"
-            android:background="@drawable/edit_text_background"
-            android:layout_marginBottom="10dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/catRec" />
 
         <EditText
             android:id="@+id/instrRec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_height="186dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
             android:hint="Instructions"
             android:inputType="textMultiLine"
             android:padding="10dp"
-            android:background="@drawable/edit_text_background"
-            android:layout_marginBottom="20dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ingRec" />
 
         <Button
             android:id="@+id/saveButton"
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:text="Enregistrer"
-            android:background="#3F4296"
-            android:textColor="#FEE3B4"
+            android:layout_marginTop="16dp"
+            android:background="#758741"
+            android:fontFamily="sans-serif-black"
+            android:padding="12dp"
+            android:text="Save"
+            android:textColor="#FFFFFF"
             android:textSize="19sp"
-            android:fontFamily="@font/playfair"
-            android:padding="12dp"/>
+            android:onClick="onSaveButtonClick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instrRec" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

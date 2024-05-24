@@ -1,113 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/spinner"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_2"
+    android:background="@drawable/background_clean"
     android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingTop="20dp"
-
-    android:paddingRight="10dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:src="@drawable/header"
+        android:translationY="-55px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/Title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:fontFamily="@font/playfair"
-            android:gravity="center"
-            android:shadowDx="10"
-            android:shadowDy="10"
-            android:shadowRadius="2"
-            android:text="Liste des recettes"
-            android:textColor="#3F4296"
-            android:textSize="30sp" />
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#D2FFFEFE"
+        app:layout_constraintEnd_toStartOf="@+id/reloadButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <Button
-            android:id="@+id/filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FF6666"
-            android:fontFamily="@font/playfair"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:text="Filter"
-            android:textColor="#FEE3B4" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/reloadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
 
-        <Button
-            android:id="@+id/profil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#CC3333"
-            android:fontFamily="@font/playfair"
-            android:text="mes recettes"
-            android:textColor="#FEE3B4" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView">
 
-    </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <ListView
+                android:id="@+id/recipeListView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:divider="@android:color/darker_gray"
+                android:dividerHeight="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/addButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
-        android:layout_width="654dp"
-        android:layout_height="689dp"
-        android:layout_gravity="center"
-        android:clipToPadding="false"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:padding="17dp"
-        android:visibility="visible">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:backgroundTint="#8BC34A"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@android:drawable/ic_input_add" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="635dp"
-            android:layout_height="672dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="-10dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="17dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardBackgroundColor="#DCC398"
-            app:cardCornerRadius="25dp"
-            app:cardElevation="24dp">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="658dp"
-                android:orientation="vertical">
+    </androidx.cardview.widget.CardView>
 
-               <!-- <SearchView
-                    android:layout_width="match_parent"
-                    android:layout_height="88dp"
-                    android:layout_weight="1"
-                    android:background="#F2A427"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp">
-
-                </SearchView>-->
-
-                <ListView
-                    android:id="@+id/listV"
-                    android:layout_width="300dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center|center_horizontal"
-                    android:layout_weight="1"
-                    android:paddingTop="20dp" />
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-    </FrameLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,81 +4,96 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Dashboard extends AppCompatActivity {
-
+    private ListView recipeListView;
+    private List<recipe> originalRecipeList;
+    private DBConnect db;
+    private SearchView searchView;
+    private RecipeAdapter adapter;
+    private DBConnect dbConnect;
+    private int userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        DBConnect db = new DBConnect(this);
-
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button profil = findViewById(R.id.profil);
-
+        db = new DBConnect(this);
+        recipeListView = findViewById(R.id.recipeListView);
+        userId = getIntent().getIntExtra("userId", -1);
+        searchView = findViewById(R.id.searchView);
+        loadRecipes();
 
         // Get the userId from the Intent
-        int userId = getIntent().getIntExtra("userId", -1);
         String username = db.getName(userId);
-        TextView welcomeTextView = findViewById(R.id.Title);
-        welcomeTextView.setText("Recetta ");
+        FloatingActionButton addButton = findViewById(R.id.addButton);
+        FloatingActionButton reloadButton = findViewById(R.id.reloadButton);
 
-
-        // Initialize ArrayLists to hold recipe names and images
-        ArrayList<String> recipeNames = new ArrayList<>();
-        ArrayList<String> recipeImages = new ArrayList<>();
-        ArrayList<Integer> recipeIds = new ArrayList<>();
-
-        // Retrieve all recipes from the database
-        // Retrieve all recipes from the database
-        List<recipeActivity> allRecipes = db.getAllRec();
-
-// Iterate over the list of recipes to populate the ArrayLists
-        for (recipeActivity rec : allRecipes) {
-            recipeNames.add(rec.getName());
-            recipeIds.add(rec.getid()); // Assuming there's a method to get the recipe ID
-
-            // Debugging toast messages
-            Toast.makeText(this, "Added recipe: " + rec.getName(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "Added recipe ID: " + rec.getid(), Toast.LENGTH_SHORT).show();
+        if (userId == -1) {
+            addButton.setVisibility(View.GONE);
+        } else {
+            addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Dashboard.this, AddRecipeActivity.class);
+                    intent.putExtra("userId", userId);
+                    startActivity(intent);
+                }
+            });
         }
 
-// Create the adapter with the ArrayLists
-
-// Set the adapter to the ListView
-
-
-
-/*
-        profil.setOnClickListener(new View.OnClickListener() {
+        reloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(Dashboard.this, profil.class);
-                intent.putExtra("userId", userId);
-                startActivity(intent);
-
+                loadRecipes();
             }
-        });*/
+        });
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterRecipes(newText);
+                return true;
+            }
+        });
     }
-    // Méthode pour le clic sur le texte "Invité"
-    public void onGuestAccessClicked(View view) {
-        // Rediriger vers l'activité pour ajouter une recette
-        Intent intent = new Intent(this, AddRecipeActivity.class);
-        startActivity(intent);
+
+    private void filterRecipes(String newText) {
+        List<recipe> filteredList = new ArrayList<>();
+        for (recipe rec : originalRecipeList) {
+            if (rec.getName().toLowerCase().contains(newText.toLowerCase()) ||
+                    rec.getCategories().toLowerCase().contains(newText.toLowerCase()) ||
+                    rec.getIngredients().toLowerCase().contains(newText.toLowerCase())) {
+                filteredList.add(rec);
+            }
+        }
+        if(Objects.equals(newText, ""))
+            loadRecipes();
+        else
+            adapter.updateList(filteredList);
     }
 
-
-
-
-
+    private void loadRecipes() {
+        originalRecipeList = db.getAllRec();
+        adapter = new RecipeAdapter(this, originalRecipeList, userId);
+        recipeListView.setAdapter(adapter);
+    }
 }

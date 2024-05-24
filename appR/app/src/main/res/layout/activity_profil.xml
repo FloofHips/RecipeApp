@@ -5,7 +5,7 @@
     android:id="@+id/spinner"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_pink"
+    android:background="@drawable/background"
     android:orientation="vertical"
     android:paddingLeft="10dp"
     android:paddingTop="20dp"
@@ -16,48 +16,51 @@
         android:id="@+id/gererRecettesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gérer mes recettes"
-        android:textSize="24sp"
-        android:textColor="#FFF"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:text="Gérer mes recettes"
+        android:textColor="#FFF"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/ajouterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#4CAF50"
             android:text="Ajouter"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/modifierButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#FF9800"
             android:text="Modifier"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/supprimerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#E91E63"
             android:text="Supprimer"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_gravity="center"
+        android:layout_weight="1"
         android:clipToPadding="false"
         android:foreground="?android:attr/selectableItemBackground"
         android:padding="17dp"
